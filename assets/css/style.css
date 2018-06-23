@@ -1,0 +1,58 @@
+h1 {
+    font-family: 'Shrikhand', cursive;
+    text-align: center;
+    padding: 10px;
+}
+
+.main-ingredient {
+    background-image: url(../images/ingredients.jpg);
+    background-repeat: no-repeat;
+    width: 50%;
+    position: absolute;
+    left: 0px;
+    height: 100%;
+    background-size: cover;
+}
+
+.main-recipe {
+    background-image: url(../images/recipe.jpg);
+    background-repeat: no-repeat;
+    width: 50%;
+    position: absolute;
+    right: 0px;
+    height: 100%;
+    background-size: cover;
+}
+
+.main-page-btn {
+    font-family: 'Shrikhand', cursive;
+    color: #fff;
+    font-size: 22pt;
+    text-align: center;
+    border: solid #fff 5px;
+    padding: 10px;
+    top: 50%;
+    position: relative;
+    margin: auto 0;
+    background-color: #3e3e3e77;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-delay: 1s;
+}
+
+a:link {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #fff;
+}
+a:active {
+    text-decoration: none;
+    color: #fff;
+}
+a:visited {
+    text-decoration: none;
+    color: #fff;
+}
