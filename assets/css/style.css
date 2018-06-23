@@ -1,7 +1,16 @@
-h1 {
-    font-family: 'Shrikhand', cursive;
+img {
+    max-width:100%;
+    max-height:100%;    
+}
+
+header {
+    align-content: center;
+    margin: auto 0;
+    vertical-align: middle;
+}
+
+body {
     text-align: center;
-    padding: 10px;
 }
 
 .main-ingredient {
@@ -55,4 +64,42 @@ a:active {
 a:visited {
     text-decoration: none;
     color: #fff;
+}
+
+.background-ingredient {
+    background-image: url(../images/ingredients.jpg);
+    background-repeat: no-repeat;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    height: 100%;
+    background-size: cover;
+}
+
+.background-recipe {
+    background-image: url(../images/recipe.jpg);
+    background-repeat: no-repeat;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    height: 100%;
+    background-size: cover;
+}
+
+.body-ingredient {
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+h2 {
+    font-family: 'Shrikhand', cursive;
+    color: #fff;
+    font-size: 22pt;
+    text-align: center;
+}
+
+h3 {
+    font-family: Roboto;
+    
 }
