@@ -6,26 +6,33 @@ $(document).ready(function(){
 $("#addBtn").click(function(){
     var addInput = $("#addIng").val();
     itemList.push(addInput);
+    console.log(itemList);
     buildList(addInput);
 
 });
 
 
 function buildList(input) {
+    $("#listIng").html("");
     itemList.forEach(element => {
         var newDiv = $("<div>");
         newDiv.html(element);
-        $("listIng").prepend(newDiv);
+        console.log(newDiv);
+        $("#listIng").prepend(newDiv);
 
     });
 
 };
 
-    // var queryUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?"
-    var queryUrl =  "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=true&ingredients=apples%2Cflour%2Csugar&limitLicense=true&number=5&ranking=1"
+    // var queryUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=true&" +
+    // var queryUrl =  "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=true&ingredients=apples%2Cflour%2Csugar&limitLicense=true&number=5&ranking=1"
 
 
-$("#testId").click(function(){
+$("#searchBtn").click(function(){
+    var queryList = JSON.stringify(itemList);
+    console.log(queryList);
+    var queryUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=true&ingredients=" + queryList + "&limitLicense=true&number=5&ranking=1";
+    console.log(queryUrl);   
     $.ajax({
         url: queryUrl,
         method: "GET",
@@ -38,11 +45,6 @@ $("#testId").click(function(){
       });
 
     });
-
-
-
-
-    //   https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=true&ingredients=apples%2Cflour%2Csugar&limitLicense=true&number=5&ranking=1
 
 
 
