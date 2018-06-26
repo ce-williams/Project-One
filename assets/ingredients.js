@@ -8,7 +8,7 @@ $("#addBtn").click(function(){
     itemList.push(addInput);
     console.log(itemList);
     buildList(addInput);
-
+    $("#addIng").val("");
 });
 
 
@@ -39,7 +39,18 @@ $("#searchBtn").click(function(){
         headers: { "X-Mashape-Key" : "2vLBQqCljEmsh3rlFN8Xw4wyX9Vwp1EdHlbjsnCgsI00qHVvuj" }
       }).then(function(response) { 
           console.log(response)
-
+          response.forEach(element => {
+            var newDiv = $("<div>");
+            newDiv.html(element.title);
+            console.log(newDiv);
+            $("#listIng").append(newDiv);
+            //    var missedArray = element[i].missedIngredients
+            //     missedArray.forEach(element => {
+                    
+            //     });
+            //     var usedArray = element[i].
+          });
+          
 
 
       });
