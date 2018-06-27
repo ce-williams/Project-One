@@ -46,6 +46,7 @@ $("#searchBtn").click(function(){
             var newLi = $("<li>");
             var liHeader = $("<div>");
             var liContent = $("<div>");
+            var liSpan = $("<span>");
             var recipeId = element.id;
             var ingredientTable = $("<table>");
             liHeader.addClass("collapsible-header");
@@ -85,13 +86,16 @@ $("#searchBtn").click(function(){
                     });
                     var directions = element.instructions;
                     directionsP.html(directions);
+                    liSpan.html(ingredientTable);
+                    liSpan.append(directionsP);
+                    liContent.html(liSpan);
+                    newLi.append(liHeader);
+                    newLi.append(liContent);
+                    newUl.append(newLi);
+                    $("#results").append(newUl);
+                    $('.collapsible').collapsible();
                 });
-            liContent.append(ingredientTable);
-            liContent.append(directionsP);
-            newLi.append(liHeader);
-            newLi.append(liContent);
-            newUl.append(newLi);
-            $("#results").append(newUl);
+            
           });
           
 
@@ -109,9 +113,3 @@ $("#searchBtn").click(function(){
 
 
 });
-
-// var missedArray = element[i].missedIngredients
-            // missedArray.forEach(element => {
-            
-            // });
-            // var usedArray = element[i].
