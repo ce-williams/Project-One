@@ -20,21 +20,21 @@ body {
 .main-ingredient {
     background-image: url(../images/ingredients.jpg);
     background-repeat: no-repeat;
-    width: 50%;
     position: absolute;
     left: 0px;
     height: 100%;
     background-size: cover;
+    display: block;
 }
 
 .main-recipe {
     background-image: url(../images/recipe.jpg);
     background-repeat: no-repeat;
-    width: 50%;
     position: absolute;
     right: 0px;
     height: 100%;
     background-size: cover;
+    display: block;
 }
 
 
@@ -133,4 +133,28 @@ h3 {
 
 #recipeBtn {
     margin: 20px;
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .main-ingredient {
+        background-image: url(../images/ingredients.jpg);
+        background-repeat: no-repeat;
+        /* position: relative; */
+        height: 50%;
+        width: 100%;
+        background-size: cover;
+    }
+    
+    .main-recipe {
+        background-image: url(../images/recipe.jpg);
+        background-repeat: no-repeat;
+        bottom: 0;
+        /* position: relative; */
+        height: 50%;
+        width: 100%;
+        background-size: cover;
+    }
+    
 }
