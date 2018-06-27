@@ -40,11 +40,17 @@ $("#searchBtn").click(function(){
         headers: { "X-Mashape-Key" : "2vLBQqCljEmsh3rlFN8Xw4wyX9Vwp1EdHlbjsnCgsI00qHVvuj" }
       }).then(function(response) { 
           console.log(response)
+          var newUl = $("<ul>");
+          newUl.addClass("collapsible");
           response.forEach(element => {
-            var newDiv = $("<div>");
-            newDiv.html(element.title);
-            console.log(newDiv);
-            $("#listIng").append(newDiv);
+            var newLi = $("<li>");
+            var liHeader = $("<div>");
+            var liContent = $("<div>");
+            liHeader.addClass("collapsible-header");
+            liContent.addClass("collapsible-body");
+            liHeader.html(element.title);
+            console.log(newUl);
+            $("#listIng").append(newUl);
             //    var missedArray = element[i].missedIngredients
             //     missedArray.forEach(element => {
                     
