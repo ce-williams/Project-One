@@ -17,6 +17,7 @@ function buildList(input) {
     itemList.forEach(element => {
         var newDiv = $("<div>");
         newDiv.html(element);
+        newDiv.addClass("ingredients");
         console.log(newDiv);
         $("#listIng").prepend(newDiv);
 
