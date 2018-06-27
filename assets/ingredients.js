@@ -49,6 +49,7 @@ $("#searchBtn").click(function(){
             var liSpan = $("<span>");
             var recipeId = element.id;
             var ingredientTable = $("<table>");
+            ingredientTable.attr("id", "tableIng");
             liHeader.addClass("collapsible-header");
             liContent.addClass("collapsible-body");
             liHeader.html(element.title);
@@ -84,9 +85,10 @@ $("#searchBtn").click(function(){
                         ingredientTable.append(newIngRow);
                         console.log(ingredientTable);
                     });
-                    var directions = element.instructions;
-                    directionsP.html(directions);
-                    liSpan.html(ingredientTable);
+                    var directions = response.instructions;
+                    console.log(directions);
+                    directionsP.html(directions);                  
+                    liSpan.append(ingredientTable);
                     liSpan.append(directionsP);
                     liContent.html(liSpan);
                     newLi.append(liHeader);
