@@ -13,6 +13,10 @@ body {
     text-align: center;
 }
 
+.logo {
+    margin: 10px;
+}
+
 .main-ingredient {
     background-image: url(../images/ingredients.jpg);
     background-repeat: no-repeat;
@@ -94,6 +98,12 @@ a:visited {
     padding-top: 20px;
 }
 
+.body-recipe {
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
 h2 {
     font-family: 'Shrikhand', cursive;
     color: #fff;
@@ -104,4 +114,23 @@ h2 {
 h3 {
     font-family: Roboto;
     
+}
+
+.ingredients {
+    background-color: #fff;
+    color: #000000;
+    font-family: Roboto;
+    width: 100%;
+}
+
+#searchBtn {
+    margin: 20px;
+}
+
+#clearBtn {
+    margin: 20px;
+}
+
+#recipeBtn {
+    margin: 20px;
 }
