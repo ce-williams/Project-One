@@ -1,5 +1,5 @@
 $(document).ready(function(){
-
+    $('.collapsible').collapsible();
     var itemList = [];
 
 
@@ -46,16 +46,52 @@ $("#searchBtn").click(function(){
             var newLi = $("<li>");
             var liHeader = $("<div>");
             var liContent = $("<div>");
+            var recipeId = element.id;
+            var ingredientTable = $("<table>");
             liHeader.addClass("collapsible-header");
             liContent.addClass("collapsible-body");
             liHeader.html(element.title);
-            console.log(newUl);
-            $("#listIng").append(newUl);
-            //    var missedArray = element[i].missedIngredients
-            //     missedArray.forEach(element => {
-                    
-            //     });
-            //     var usedArray = element[i].
+            var newTableHeaders = $("<tr>");
+            var ingredientTh = $("<th>")
+            var amountTh = $("<th>");
+            var directionsP = $("<p>"); 
+            ingredientTh.html("Ingredient");
+            amountTh.html("Amount Needed");
+            newTableHeaders.append(ingredientTh);
+            newTableHeaders.append(amountTh);
+            ingredientTable.append(newTableHeaders);
+            var secondQueryUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + recipeId + "/information?includeNutrition=false";
+                $.ajax({
+                    url: secondQueryUrl,
+                    method: "GET",
+                    headers: { "X-Mashape-Key" : "2vLBQqCljEmsh3rlFN8Xw4wyX9Vwp1EdHlbjsnCgsI00qHVvuj" }
+                }).then(function(response) {
+                    console.log(response);
+                    var ingredientsArray = response.extendedIngredients;
+                    console.log(ingredientsArray);
+                    ingredientsArray.forEach(element => {
+                        var name = element.name;
+                        var amount = element.measures.us.amount;
+                        var measurement = element.measures.us.unitLong;
+                        var newIngRow = $("<tr>");
+                        var newNameTd = $("<td>");
+                        var newAmountTd = $("<td>");
+                        newNameTd.html(name);
+                        newAmountTd.html(amount + " " + measurement);
+                        newIngRow.append(newNameTd);
+                        newIngRow.append(newAmountTd);
+                        ingredientTable.append(newIngRow);
+                        console.log(ingredientTable);
+                    });
+                    var directions = element.instructions;
+                    directionsP.html(directions);
+                });
+            liContent.append(ingredientTable);
+            liContent.append(directionsP);
+            newLi.append(liHeader);
+            newLi.append(liContent);
+            newUl.append(newLi);
+            $("#results").append(newUl);
           });
           
 
@@ -73,3 +109,9 @@ $("#searchBtn").click(function(){
 
 
 });
+
+// var missedArray = element[i].missedIngredients
+            // missedArray.forEach(element => {
+            
+            // });
+            // var usedArray = element[i].
