@@ -15,6 +15,9 @@ body {
 
 .logo {
     margin: 10px;
+    height: 65px;
+    width: 100%;
+    /* position: absolute; */
 }
 
 .main-ingredient {
@@ -46,10 +49,10 @@ body {
     text-align: center;
     border: solid #fff 5px;
     padding: 10px;
-    top: 50%;
+    top: 40%;
     position: relative;
     margin: auto 0;
-    background-color: #3e3e3e77;
+    background-color: #3e3e3e94;
     -webkit-animation-duration: 3s;
     -webkit-animation-delay: 1s;
 }
@@ -142,7 +145,7 @@ h3 {
         background-image: url(../images/ingredients.jpg);
         background-repeat: no-repeat;
         /* position: relative; */
-        height: 50%;
+        height: 45%;
         width: 100%;
         background-size: cover;
     }
@@ -152,9 +155,16 @@ h3 {
         background-repeat: no-repeat;
         bottom: 0;
         /* position: relative; */
-        height: 50%;
+        height: 45%;
         width: 100%;
         background-size: cover;
     }
+
+    .body-ingredient {
+        width: 80%;
+    }
     
+    h2 {
+        font-size: 34pt;
+    }
 }
