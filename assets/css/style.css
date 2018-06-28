@@ -15,26 +15,29 @@ body {
 
 .logo {
     margin: 10px;
+    height: 65px;
+    width: 100%;
+    /* position: absolute; */
 }
 
 .main-ingredient {
     background-image: url(../images/ingredients.jpg);
     background-repeat: no-repeat;
-    width: 50%;
     position: absolute;
     left: 0px;
     height: 100%;
     background-size: cover;
+    display: block;
 }
 
 .main-recipe {
     background-image: url(../images/recipe.jpg);
     background-repeat: no-repeat;
-    width: 50%;
     position: absolute;
     right: 0px;
     height: 100%;
     background-size: cover;
+    display: block;
 }
 
 
@@ -46,10 +49,10 @@ body {
     text-align: center;
     border: solid #fff 5px;
     padding: 10px;
-    top: 50%;
+    top: 40%;
     position: relative;
     margin: auto 0;
-    background-color: #3e3e3e77;
+    background-color: #3e3e3e94;
     -webkit-animation-duration: 3s;
     -webkit-animation-delay: 1s;
 }
@@ -135,6 +138,36 @@ h3 {
     margin: 20px;
 }
 
+
+
+@media screen and (max-width: 768px) {
+    .main-ingredient {
+        background-image: url(../images/ingredients.jpg);
+        background-repeat: no-repeat;
+        /* position: relative; */
+        height: 45%;
+        width: 100%;
+        background-size: cover;
+    }
+    
+    .main-recipe {
+        background-image: url(../images/recipe.jpg);
+        background-repeat: no-repeat;
+        bottom: 0;
+        /* position: relative; */
+        height: 45%;
+        width: 100%;
+        background-size: cover;
+    }
+
+    .body-ingredient {
+        width: 80%;
+    }
+    
+    h2 {
+        font-size: 34pt;
+    }
+}
 #tableIng {
     background-color: white;
 }
