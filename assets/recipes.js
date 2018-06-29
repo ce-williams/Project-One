@@ -67,7 +67,7 @@ $("#recipeBtn").click(function(){
                     newLi.append(liHeader);
                     newLi.append(liContent);
                     newUl.append(newLi);
-                    $("#listRecipe").append(newUl);
+                    $("#listRecipe").html(newUl);
                     $('.collapsible').collapsible();
                 });
             
