@@ -58,6 +58,9 @@ $("#searchBtn").click(function(){
             var amountTh = $("<th>");
             var directionsP = $("<p>");
             var missedDiv = $("<p>");
+            var missedHeader = $("<h3>");
+            missedHeader.html("Missing Ingredients");
+            missedDiv.append(missedHeader);
             var listMissed = $("<ul>");
             var missingIng = element.missedIngredients;
                 missingIng.forEach(element => {
