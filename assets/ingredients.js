@@ -11,6 +11,12 @@ $("#addBtn").click(function(){
     $("#addIng").val("");
 });
 
+$("#clearBtn").click(function(){
+    $("#listIng").html("");
+    itemList = [];
+    console.log(itemList);
+
+});
 
 function buildList(input) {
     $("#listIng").html("");
