@@ -11,6 +11,12 @@ $("#addBtn").click(function(){
     $("#addIng").val("");
 });
 
+$("#clearBtn").click(function(){
+    $("#listIng").html("");
+    itemList = [];
+    console.log(itemList);
+
+});
 
 function buildList(input) {
     $("#listIng").html("");
@@ -56,7 +62,20 @@ $("#searchBtn").click(function(){
             var newTableHeaders = $("<tr>");
             var ingredientTh = $("<th>")
             var amountTh = $("<th>");
-            var directionsP = $("<p>"); 
+            var directionsP = $("<p>");
+            var missedDiv = $("<p>");
+            var missedHeader = $("<h3>");
+            missedHeader.html("Missing Ingredients");
+            missedDiv.append(missedHeader);
+            var listMissed = $("<ul>");
+            var missingIng = element.missedIngredients;
+                missingIng.forEach(element => {
+                    var listItemMissed = $("<li>");
+                    var ingredientName = element.name;
+                    listItemMissed.html(ingredientName);
+                    listMissed.append(listItemMissed);
+                });
+            missedDiv.append(listMissed);
             ingredientTh.html("Ingredient");
             amountTh.html("Amount Needed");
             newTableHeaders.append(ingredientTh);
@@ -90,6 +109,7 @@ $("#searchBtn").click(function(){
                     directionsP.html(directions);                  
                     liSpan.append(ingredientTable);
                     liSpan.append(directionsP);
+                    liSpan.append(missedDiv);
                     liContent.html(liSpan);
                     newLi.append(liHeader);
                     newLi.append(liContent);
