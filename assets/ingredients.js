@@ -121,7 +121,7 @@ $("#searchBtn").click(function(){
           });
           
 
-
+          $(".map").append($("<iframe class=\"resp-iframe\" frameborder=\"0\" style=\"border:0\" src=\"https://www.google.com/maps/embed/v1/place?q=grocery%20store&key=AIzaSyA4IHG2Kbd8hg-4L27SXrYgBvnieYeSM4U\" allowfullscreen></iframe>"));
       });
 
     });
