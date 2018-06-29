@@ -1,4 +1,14 @@
 $(document).ready(function(){
+    var config = {
+        apiKey: "AIzaSyD7X-TdIZpa6Lt1wV0cKwxVr54JupAnAro",
+        authDomain: "food-fight-551b3.firebaseapp.com",
+        databaseURL: "https://food-fight-551b3.firebaseio.com",
+        projectId: "food-fight-551b3",
+        storageBucket: "food-fight-551b3.appspot.com",
+        messagingSenderId: "624451193630"
+      };
+      firebase.initializeApp(config);
+
     $('.collapsible').collapsible();
     var itemList = [];
 
@@ -34,6 +44,10 @@ $("#searchBtn").click(function(){
     console.log(queryList);
     var queryUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=true&ingredients=" + queryList + "&limitLicense=true&number=5&ranking=1";
     console.log(queryUrl);   
+    firebase.database().ref().push({
+        ingreedients: itemList,
+        numIng: itemList.length
+      });
     $.ajax({
         url: queryUrl,
         method: "GET",
@@ -63,40 +77,41 @@ $("#searchBtn").click(function(){
             newTableHeaders.append(amountTh);
             ingredientTable.append(newTableHeaders);
             var secondQueryUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + recipeId + "/information?includeNutrition=false";
-                $.ajax({
-                    url: secondQueryUrl,
-                    method: "GET",
-                    headers: { "X-Mashape-Key" : "2vLBQqCljEmsh3rlFN8Xw4wyX9Vwp1EdHlbjsnCgsI00qHVvuj" }
-                }).then(function(response) {
-                    console.log(response);
-                    var ingredientsArray = response.extendedIngredients;
-                    console.log(ingredientsArray);
-                    ingredientsArray.forEach(element => {
-                        var name = element.name;
-                        var amount = element.measures.us.amount;
-                        var measurement = element.measures.us.unitLong;
-                        var newIngRow = $("<tr>");
-                        var newNameTd = $("<td>");
-                        var newAmountTd = $("<td>");
-                        newNameTd.html(name);
-                        newAmountTd.html(amount + " " + measurement);
-                        newIngRow.append(newNameTd);
-                        newIngRow.append(newAmountTd);
-                        ingredientTable.append(newIngRow);
-                        console.log(ingredientTable);
-                    });
-                    var directions = response.instructions;
-                    console.log(directions);
-                    directionsP.html(directions);                  
-                    liSpan.append(ingredientTable);
-                    liSpan.append(directionsP);
-                    liContent.html(liSpan);
-                    newLi.append(liHeader);
-                    newLi.append(liContent);
-                    newUl.append(newLi);
-                    $("#results").append(newUl);
-                    $('.collapsible').collapsible();
-                });
+            console.log("here is the " + firebase.database());
+                // $.ajax({
+                //     url: secondQueryUrl,
+                //     method: "GET",
+                //     headers: { "X-Mashape-Key" : "2vLBQqCljEmsh3rlFN8Xw4wyX9Vwp1EdHlbjsnCgsI00qHVvuj" }
+                // }).then(function(response) {
+                //     console.log(response);
+                //     var ingredientsArray = response.extendedIngredients;
+                //     console.log(ingredientsArray);
+                //     ingredientsArray.forEach(element => {
+                //         var name = element.name;
+                //         var amount = element.measures.us.amount;
+                //         var measurement = element.measures.us.unitLong;
+                //         var newIngRow = $("<tr>");
+                //         var newNameTd = $("<td>");
+                //         var newAmountTd = $("<td>");
+                //         newNameTd.html(name);
+                //         newAmountTd.html(amount + " " + measurement);
+                //         newIngRow.append(newNameTd);
+                //         newIngRow.append(newAmountTd);
+                //         ingredientTable.append(newIngRow);
+                //         console.log(ingredientTable);
+                //     });
+                //     var directions = response.instructions;
+                //     console.log(directions);
+                //     directionsP.html(directions);                  
+                //     liSpan.append(ingredientTable);
+                //     liSpan.append(directionsP);
+                //     liContent.html(liSpan);
+                //     newLi.append(liHeader);
+                //     newLi.append(liContent);
+                //     newUl.append(newLi);
+                //     $("#results").append(newUl);
+                //     $('.collapsible').collapsible();
+                // });
             
           });
           
