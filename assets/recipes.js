@@ -67,14 +67,14 @@ $("#recipeBtn").click(function(){
                     newLi.append(liHeader);
                     newLi.append(liContent);
                     newUl.append(newLi);
-                    $("#listRecipe").append(newUl);
+                    $("#listRecipe").html(newUl);
                     $('.collapsible').collapsible();
                 });
             
           });
           
 
-
+          $(".map").append($("<iframe class=\"resp-iframe\" frameborder=\"0\" style=\"border:0\" src=\"https://www.google.com/maps/embed/v1/place?q=grocery%20store&key=AIzaSyA4IHG2Kbd8hg-4L27SXrYgBvnieYeSM4U\" allowfullscreen></iframe>"));
       });
 
     });
