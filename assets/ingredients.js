@@ -1,4 +1,14 @@
 $(document).ready(function(){
+    var config = {
+        apiKey: "AIzaSyD7X-TdIZpa6Lt1wV0cKwxVr54JupAnAro",
+        authDomain: "food-fight-551b3.firebaseapp.com",
+        databaseURL: "https://food-fight-551b3.firebaseio.com",
+        projectId: "food-fight-551b3",
+        storageBucket: "food-fight-551b3.appspot.com",
+        messagingSenderId: "624451193630"
+      };
+      firebase.initializeApp(config);
+
     $('.collapsible').collapsible();
     var itemList = [];
 
@@ -40,6 +50,10 @@ $("#searchBtn").click(function(){
     console.log(queryList);
     var queryUrl = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients=true&ingredients=" + queryList + "&limitLicense=true&number=5&ranking=1";
     console.log(queryUrl);   
+    firebase.database().ref().push({
+        ingreedients: itemList,
+        numIng: itemList.length
+      });
     $.ajax({
         url: queryUrl,
         method: "GET",
