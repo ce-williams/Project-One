@@ -57,7 +57,7 @@ $("#searchBtn").click(function(){
     $.ajax({
         url: queryUrl,
         method: "GET",
-        headers: { "X-Mashape-Key" : "2vLBQqCljEmsh3rlFN8Xw4wyX9Vwp1EdHlbjsnCgsI00qHVvuj" }
+        headers: { "X-Mashape-Key" : "<key>" }
       }).then(function(response) { 
           console.log(response)
           var newUl = $("<ul>");
@@ -99,7 +99,7 @@ $("#searchBtn").click(function(){
                 $.ajax({
                     url: secondQueryUrl,
                     method: "GET",
-                    headers: { "X-Mashape-Key" : "2vLBQqCljEmsh3rlFN8Xw4wyX9Vwp1EdHlbjsnCgsI00qHVvuj" }
+                    headers: { "X-Mashape-Key" : "<key>" }
                 }).then(function(response) {
                     console.log(response);
                     var ingredientsArray = response.extendedIngredients;
